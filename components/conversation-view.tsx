@@ -54,15 +54,15 @@ export function ConversationView({ conversationId, onSendMessage }: Conversation
   // Default chat interface
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
-      <ScrollArea ref={scrollAreaRef} className="flex-1 p-4">
+      <ScrollArea ref={scrollAreaRef} className="flex-1 px-2 md:px-4 py-2">
         {conversationMessages.length > 0 ? (
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4 md:gap-6 max-w-full md:max-w-[90%] mx-auto">
             {conversationMessages.map((message) => (
               <MessageItem key={message.id} role={message.role} content={message.content} />
             ))}
           </div>
         ) : (
-          <div className="mx-auto max-w-3xl py-8">
+          <div className="mx-auto w-full md:max-w-3xl py-4 md:py-8">
             <NewsFeed />
           </div>
         )}

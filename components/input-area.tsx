@@ -74,20 +74,20 @@ export function InputArea({ onSendMessage }: InputAreaProps) {
   }
 
   return (
-    <div className="border-t bg-card p-4">
-      <div className="flex justify-between mb-3 overflow-x-auto">
-        <div className="flex gap-2">
-          <Button variant="outline" size="sm" onClick={switchToWhiteboard}>
-            <LayoutPanelLeft className="h-4 w-4 mr-2" />
-            Lousa
+    <div className="border-t bg-card p-2 md:p-4">
+      <div className="flex flex-col md:flex-row justify-between gap-2 md:gap-3 mb-2 md:mb-3">
+        <div className="flex gap-2 overflow-x-auto md:overflow-visible">
+          <Button variant="outline" size="sm" className="whitespace-nowrap" onClick={switchToWhiteboard}>
+            <LayoutPanelLeft className="h-4 w-4 mr-1 md:mr-2" />
+            <span className="hidden md:inline">Lousa</span>
           </Button>
-          <Button variant="outline" size="sm" onClick={switchToTerminal}>
-            <Code className="h-4 w-4 mr-2" />
-            Código
+          <Button variant="outline" size="sm" className="whitespace-nowrap" onClick={switchToTerminal}>
+            <Code className="h-4 w-4 mr-1 md:mr-2" />
+            <span className="hidden md:inline">Código</span>
           </Button>
-          <Button variant="outline" size="sm" onClick={switchToInvestigate}>
-            <Search className="h-4 w-4 mr-2" />
-            Investigar
+          <Button variant="outline" size="sm" className="whitespace-nowrap" onClick={switchToInvestigate}>
+            <Search className="h-4 w-4 mr-1 md:mr-2" />
+            <span className="hidden md:inline">Investigar</span>
           </Button>
         </div>
         <div className="flex gap-2">
@@ -102,11 +102,16 @@ export function InputArea({ onSendMessage }: InputAreaProps) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Digite sua mensagem ou use o Whisper para falar..."
-          className="min-h-[48px] pr-12 resize-none"
+          placeholder="Digite sua mensagem..."
+          className="min-h-[40px] md:min-h-[48px] pr-10 md:pr-12 resize-none text-sm md:text-base"
           rows={1}
         />
-        <Button size="icon" className="absolute right-2 bottom-2" onClick={handleSend} disabled={!message.trim()}>
+        <Button 
+          size="icon" 
+          className="absolute right-1 md:right-2 bottom-1 md:bottom-2 h-8 w-8 md:h-9 md:w-9" 
+          onClick={handleSend} 
+          disabled={!message.trim()}
+        >
           <Send className="h-4 w-4" />
           <span className="sr-only">Send message</span>
         </Button>

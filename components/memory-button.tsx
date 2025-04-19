@@ -31,12 +31,10 @@ export function MemoryButton() {
 
   return (
     <>
-      <div className="px-4 py-3">
-        <Button variant="default" className="w-full justify-start gap-2" onClick={() => setOpen(true)}>
-          <Brain className="h-4 w-4" />
-          Memória Processada
-        </Button>
-      </div>
+      <Button variant="outline" size="sm" onClick={() => setOpen(true)} className="gap-2">
+        <Brain className="h-4 w-4" />
+        Memória
+      </Button>
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-h-[80vh] overflow-auto sm:max-w-[600px]">
@@ -44,9 +42,9 @@ export function MemoryButton() {
             <DialogTitle className="flex items-center justify-between">
               Memória Processada
               <DialogClose asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="h-4 w-4">
                   <X className="h-4 w-4" />
-                  <span className="sr-only">Close</span>
+                  <span className="sr-only">Fechar</span>
                 </Button>
               </DialogClose>
             </DialogTitle>

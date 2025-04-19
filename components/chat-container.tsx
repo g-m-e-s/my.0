@@ -44,7 +44,7 @@ export function ChatContainer() {
   // If not in chat mode, render the specialized interface without tabs and toolbar
   if (mode !== "chat") {
     return (
-      <div className="flex flex-1 flex-col overflow-hidden">
+      <div className="flex flex-1 flex-col overflow-hidden w-full md:w-[90%] mx-auto">
         <ConversationView conversationId={activeTabId} onSendMessage={handleSendMessage} />
         <InputArea onSendMessage={(content) => handleSendMessage(content, activeTabId)} />
       </div>
@@ -54,12 +54,12 @@ export function ChatContainer() {
   // In split view, show all tabs side by side
   if (splitView) {
     return (
-      <div className="flex flex-1 flex-col overflow-hidden">
+      <div className="flex flex-1 flex-col overflow-hidden w-full md:w-[90%] mx-auto">
         <ConversationTabs />
         <ConversationToolbar />
-        <div className="flex flex-1 overflow-hidden">
+        <div className="flex flex-1 overflow-x-auto overflow-y-hidden">
           {tabs.map((tab, index) => (
-            <div key={tab.id} className={cn("flex flex-1 flex-col overflow-hidden", index > 0 && "border-l")}>
+            <div key={tab.id} className={cn("flex-1 min-w-[300px] flex flex-col overflow-hidden", index > 0 && "border-l")}>
               <div className="p-2 text-center text-xs font-medium text-muted-foreground">{tab.title}</div>
               <ConversationView conversationId={tab.id} onSendMessage={handleSendMessage} />
             </div>
@@ -72,7 +72,7 @@ export function ChatContainer() {
 
   // Regular single view
   return (
-    <div className="flex flex-1 flex-col overflow-hidden">
+    <div className="flex flex-1 flex-col overflow-hidden w-full md:w-[90%] mx-auto">
       <ConversationTabs />
       <ConversationToolbar />
       <ConversationView conversationId={activeTabId} onSendMessage={handleSendMessage} />

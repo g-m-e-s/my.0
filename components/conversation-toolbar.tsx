@@ -5,6 +5,9 @@ import { ConversationTagging } from "@/components/conversation-tagging"
 import { ConversationTemplates } from "@/components/conversation-templates"
 import { ConversationExport } from "@/components/conversation-export"
 import { ConversationMerge } from "@/components/conversation-merge"
+import { MemoryButton } from "@/components/memory-button"
+import { RAGButton } from "@/components/rag-button"
+import { Separator } from "@/components/ui/separator"
 
 export function ConversationToolbar() {
   return (
@@ -14,6 +17,9 @@ export function ConversationToolbar() {
       <ConversationTemplates />
       <ConversationExport />
       <ConversationMerge />
+      <Separator orientation="vertical" className="h-6" />
+      <RAGButton />
+      <MemoryButton />
     </div>
   )
 }
